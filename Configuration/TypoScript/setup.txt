@@ -1,0 +1,33 @@
+####################################################
+# YAG Theme Magnific Popup
+#
+# @author Jonathan Heilmann <mail@jonathan-heilmann.de>
+####################################################
+
+# Copy default settings from default theme
+plugin.tx_yag.settings.themes.magnificPopup < plugin.tx_yag.settings.themes.default
+
+plugin.tx_yag.settings.themes.magnificPopup {
+	title = Theme Magnific Popup
+	description = The YAG Magnific Popup theme
+	includeCSS.yag_theme_magnificpopup_style = EXT:yag_theme_magnificpopup/Resources/Public/CSS/styles.css
+	includeCSS.yag_theme_magnificpopup_magnificpopup = EXT:yag_theme_magnificpopup/Resources/Public/CSS/magnific-popup.css
+	includeJS.yag_theme_magnificpopup_magnificpopup = EXT:yag_theme_magnificpopup/Resources/Public/JavaScript/magnific-popup.js
+	includeJS.yag_theme_magnificpopup_gallery = EXT:yag_theme_magnificpopup/Resources/Public/JavaScript/gallery.js
+	jsPostion = footer
+	resolutionConfigs {
+		lightbox {
+			maxW = 1024
+			maxH = 768
+			quality = 100
+		}
+	}
+	controller {
+		ItemList {
+			list.template = EXT:yag_theme_magnificpopup/Resources/Private/Templates/ItemList/List.html
+		}
+	}
+	itemList {
+		imageThumbPartial = EXT:yag_theme_magnificpopup/Resources/Private/Partials/ImageThumb.html
+	}
+}
