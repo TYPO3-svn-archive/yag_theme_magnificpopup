@@ -12,7 +12,7 @@ plugin.tx_yag.settings.themes.magnificPopup {
 	description = The YAG Magnific Popup theme
 	includeCSS.yag_theme_magnificpopup_style = EXT:yag_theme_magnificpopup/Resources/Public/CSS/styles.css
 	includeCSS.yag_theme_magnificpopup_magnificpopup = EXT:yag_theme_magnificpopup/Resources/Public/CSS/magnific-popup.css
-	includeJS.yag_theme_magnificpopup_magnificpopup = EXT:yag_theme_magnificpopup/Resources/Public/JavaScript/magnific-popup.js
+	includeJS.yag_theme_magnificpopup_magnificpopup = EXT:yag_theme_magnificpopup/Resources/Public/JavaScript/magnific-popup.min.js
 	includeJS.yag_theme_magnificpopup_gallery = EXT:yag_theme_magnificpopup/Resources/Public/JavaScript/gallery.js
 	jsPostion = footer
 	resolutionConfigs {
