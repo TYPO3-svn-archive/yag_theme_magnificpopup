@@ -1,0 +1,30 @@
+{namespace yag=Tx_Yag_ViewHelpers}
+{namespace extlist=Tx_PtExtlist_ViewHelpers}
+{namespace rbac=Tx_Rbac_ViewHelpers}
+
+<div class="tx-yag-gallery-thumb">
+	<yag:link.gallery gallery="{gallery}">
+	    <f:if condition="{gallery.albumCount} > 0">
+	        <f:then>
+		        <yag:image item="{gallery.thumbAlbum.thumb}" resolutionName="galleryThumb" />
+		    </f:then>
+		    <f:else>
+		        <div><f:translate key="tx_yag_controller_gallery.noAlbums" /></div>
+		    </f:else>
+    	</f:if>
+	</yag:link.gallery>
+</div>
+
+<div class="tx-yag-gallery-galleryinfo">
+	<yag:link.gallery gallery="{gallery}">
+	   <div class="tx-yag-gallery-gallerycaption">
+		  {gallery.name}
+	   </div>
+    </yag:link.gallery>
+	<div class="tx-yag-gallery-albumcount">
+		{gallery.albumCount} <f:if condition="{1:gallery.albumCount} == {1:1}"><f:then><f:translate key="tx_yag_general.album" /></f:then><f:else><f:translate key="tx_yag_general.albums" /></f:else></f:if>
+	</div>
+	<div class="tx-yag-gallery-gallerydescription">
+		<f:format.nl2br>{gallery.description}</f:format.nl2br>
+	</div>
+</div>

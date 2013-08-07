@@ -26,8 +26,21 @@ plugin.tx_yag.settings.themes.magnificPopup {
 		ItemList {
 			list.template = EXT:yag_theme_magnificpopup/Resources/Private/Templates/ItemList/List.html
 		}
+		Album {
+			list.template = EXT:yag_theme_magnificpopup/Resources/Private/Templates/Album/List.html
+		}
+		Gallery {
+			list.template = EXT:yag_theme_magnificpopup/Resources/Private/Templates/Gallery/List.html
+			index.template = EXT:yag_theme_magnificpopup/Resources/Private/Templates/Gallery/Index.html
+		}
 	}
 	itemList {
 		imageThumbPartial = EXT:yag_theme_magnificpopup/Resources/Private/Partials/ImageThumb.html
+	}
+	albumList {
+		albumThumbPartial = EXT:yag_theme_magnificpopup/Resources/Private/Partials/AlbumThumb.html
+	}
+	galleryList {
+		galleryThumbPartial = EXT:yag_theme_magnificpopup/Resources/Private/Partials/GalleryThumb.html
 	}
 }
