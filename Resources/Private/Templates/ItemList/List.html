@@ -13,9 +13,7 @@
 <f:section name="main">
     <div class="tx-yag-theme-magnificpopup-imagecontainer">
 		<f:for each="{listData}" key="rowIndex" as="listRow">
-		    <div class="tx-yag-thumb-outerframe tx-yag-item-thumb-outerframe" style="width:{config.itemListConfig.columnRelativeWidth}%">
-		    	<f:render partial="{config.itemListConfig.imageThumbPartial}" arguments="{config: config, image: listRow.image.value, rowIndex: listRow.specialValues.absoluteRowIndex, pager: pager, pagerCollection:pagerCollection}" />
-		    </div>
+		    <f:render partial="{config.itemListConfig.imageThumbPartial}" arguments="{config: config, image: listRow.image.value, rowIndex: listRow.specialValues.absoluteRowIndex, pager: pager, pagerCollection:pagerCollection}" />
 		</f:for>
 	</div>
 
