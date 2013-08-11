@@ -1,0 +1,30 @@
+# cat=plugin.yag_theme_magnificpopup/enable/010; type=boolean; label=Include jQuery
+plugin.tx_yagthememagnificpopup.includejquerycore = 0
+
+
+#customsubcategory=magnificpopup=LLL:EXT:yag_theme_magnificpopup/Resources/Private/Language/locallang.xml:constants.subcat.magnificpopup
+
+# cat=plugin.yag_theme_magnificpopup/magnificpopup/110; type=int+; label=Preload x images before actual
+plugin.tx_yagthememagnificpopup.magnificpopup.gallery.preload.before = 1
+
+# cat=plugin.yag_theme_magnificpopup/magnificpopup/120; type=int+; label=Preload x images after actual
+plugin.tx_yagthememagnificpopup.magnificpopup.gallery.preload.after = 2
+
+# cat=plugin.yag_theme_magnificpopup/magnificpopup/130; type=boolean; label=Enable 'navigate by image click'
+plugin.tx_yagthememagnificpopup.magnificpopup.gallery.navigateByImgClick = 1
+
+# cat=plugin.yag_theme_magnificpopup/magnificpopup/210; type=string; label=Set to 'null' to disable zoom out cursor.
+plugin.tx_yagthememagnificpopup.magnificpopup.image.cursor = mfp-zoom-out-cur
+
+# cat=plugin.yag_theme_magnificpopup/magnificpopup/220; type=int+; label=Vertical gap
+plugin.tx_yagthememagnificpopup.magnificpopup.image.verticalGap = 88
+
+# cat=plugin.yag_theme_magnificpopup/magnificpopup/230; type=boolean; label=Fit image in area vertically
+plugin.tx_yagthememagnificpopup.magnificpopup.image.verticalFit = 1
+
+
+# cat=plugin.yag_theme_magnificpopup/magnificpopup/910; type=boolean; label=Include Magnific Popup javascript
+plugin.tx_yagthememagnificpopup.includeMagnificpopupJs = 1
+
+# cat=plugin.yag_theme_magnificpopup/magnificpopup/920; type=boolean; label=Include Magnific Popup css
+plugin.tx_yagthememagnificpopup.includeMagnificpopupCss = 1

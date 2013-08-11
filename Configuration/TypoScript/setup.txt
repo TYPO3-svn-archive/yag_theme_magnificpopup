@@ -6,20 +6,20 @@
 
 # Copy default settings from default theme
 plugin.tx_yag.settings.themes.magnificPopup < plugin.tx_yag.settings.themes.default
-
+# Edit default theme
 plugin.tx_yag.settings.themes.magnificPopup {
 	title = Theme Magnific Popup
 	description = The YAG Magnific Popup theme
-	includeCSS.yag_theme_magnificpopup_style = EXT:yag_theme_magnificpopup/Resources/Public/CSS/styles.css
-	includeCSS.yag_theme_magnificpopup_magnificpopup = EXT:yag_theme_magnificpopup/Resources/Public/CSS/magnific-popup.css
-	includeJS.yag_theme_magnificpopup_magnificpopup = EXT:yag_theme_magnificpopup/Resources/Public/JavaScript/magnific-popup.min.js
-	includeJS.yag_theme_magnificpopup_gallery = EXT:yag_theme_magnificpopup/Resources/Public/JavaScript/gallery.js
+	includeCSS {
+		yag_theme_default >
+		yag_theme_magnificpopup_style = EXT:yag_theme_magnificpopup/Resources/Public/CSS/styles.css
+	}
 	jsPostion = footer
 	resolutionConfigs {
 		lightbox {
-			maxW = 1024
-			maxH = 768
-			quality = 100
+			maxW = {$styles.content.imgtext.linkWrap.width}
+			#maxH = 768
+			#quality = 100
 		}
 	}
 	controller {
@@ -44,3 +44,92 @@ plugin.tx_yag.settings.themes.magnificPopup {
 		galleryThumbPartial = EXT:yag_theme_magnificpopup/Resources/Private/Partials/GalleryThumb.html
 	}
 }
+# Include Magnific Popup css only when set
+[globalVar = LIT:1 = {$plugin.tx_yagthememagnificpopup.includeMagnificpopupCss}]
+	plugin.tx_yag.settings.themes.magnificPopup.includeCSS.yag_theme_magnificpopup_magnificpopup = EXT:yag_theme_magnificpopup/Resources/Public/CSS/magnific-popup.css
+[global]
+
+# Include Magnific Popup JavaScript only when set
+[globalVar = LIT:1 = {$plugin.tx_yagthememagnificpopup.includeMagnificpopupJs}]
+	plugin.tx_yag.settings.themes.magnificPopup.includeJS.yag_theme_magnificpopup_magnificpopup = EXT:yag_theme_magnificpopup/Resources/Public/JavaScript/jquery.magnific-popup.min.js
+[global]
+
+# Include this only on ItemList-Views
+[globalVar = GP:tx_yag_pi1|controller = ItemList]
+	# Include jQuery Core only when set
+	page.includeJSFooterlibs {
+		yag_theme_magnificpopup10 = EXT:yag_theme_magnificpopup/Resources/Public/JavaScript/jquery-1.10.2.min.js
+		yag_theme_magnificpopup10.forceOnTop = 1
+		yag_theme_magnificpopup10.if.isTrue = {$plugin.tx_yagthememagnificpopup.includejquerycore}
+	}
+
+	# Copy actual page.jsFooterInline to setup to prevent from data-loss
+	plugin.tx_yagthememagnificpopup.setup < page.jsFooterInline
+	plugin.tx_yagthememagnificpopup {
+		setup {
+			108 = COA
+		 	108 {
+				wrap = jQuery(document).ready(function($) {|});
+				10 = COA
+				10 {
+					wrap = $('.tx-yag-theme-magnificpopup-imagecontainer').each(function() {|});
+					20 = COA
+					20 {
+						wrap = $(this).magnificPopup({|});
+						10 = TEXT
+						10.value = delegate: '.magnificpopup',
+						20 = TEXT
+						20.value = tClose: '{LLL:EXT:yag_theme_magnificpopup/Resources/Private/Language/locallang.xml:tClose}',
+						20.insertData = 1
+						30 = TEXT
+						30.value = type: 'image',
+						40 = TEXT
+						40.value = tLoading: '{LLL:EXT:yag_theme_magnificpopup/Resources/Private/Language/locallang.xml:tLoading}',
+						40.insertData = 1
+						50 = TEXT
+						50.value = mainClass: 'mfp-img-mobile',
+						60 = COA
+						60 {
+							wrap = gallery: {|},
+							10 = TEXT
+							10.value = enabled: true,
+							20 = TEXT
+							20.value = preload: [{$plugin.tx_yagthememagnificpopup.magnificpopup.gallery.preload.before},{$plugin.tx_yagthememagnificpopup.magnificpopup.gallery.preload.after}],
+							30 = TEXT
+							30.value = navigateByImgClick: {$plugin.tx_yagthememagnificpopup.magnificpopup.gallery.navigateByImgClick},
+							40 = TEXT
+							40.value = arrowMarkup: '<button title="%title%" type="button" class="mfp-arrow mfp-arrow-%dir%"></button>',
+							50 = TEXT
+							50.value = tPrev: '{LLL:EXT:yag_theme_magnificpopup/Resources/Private/Language/locallang.xml:tPrev}',
+							50.insertData = 1
+							60 = TEXT
+							60.value = tNext: '{LLL:EXT:yag_theme_magnificpopup/Resources/Private/Language/locallang.xml:tNext}',
+							60.insertData = 1
+							70 = TEXT
+							70.value = tCounter: '{LLL:EXT:yag_theme_magnificpopup/Resources/Private/Language/locallang.xml:tCounter}'
+							70.insertData = 1
+						}
+						70 = COA
+						70 {
+							wrap = image: {|}
+							10 = TEXT
+							10.value = cursor: '{$plugin.yag_theme_magnificpopup.magnificpopup.image.cursor}',
+							10.insertData = 1
+							20 = TEXT
+							20.value = titleSrc: 'title',
+							30 = TEXT
+							30.value = verticalGap: {$plugin.tx_yagthememagnificpopup.magnificpopup.image.verticalGap},
+							30 = TEXT
+							30.value = verticalFit: {$plugin.tx_yagthememagnificpopup.magnificpopup.image.verticalFit},
+							40 = TEXT
+							40.value = tError: '{LLL:EXT:yag_theme_magnificpopup/Resources/Private/Language/locallang.xml:tError}'
+							40.insertData = 1
+						}
+					}
+				}
+			}
+		}
+	}
+	# Add JavaScript to Inline-Footer
+	page.jsFooterInline < plugin.tx_yagthememagnificpopup.setup
+[global]
