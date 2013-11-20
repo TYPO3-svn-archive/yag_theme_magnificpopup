@@ -3,20 +3,20 @@
 /***************************************************************
  * Extension Manager/Repository config file for ext "yag_theme_magnificpopup".
  *
- * Auto generated 11-08-2013 22:53
+ * Auto generated 20-11-2013 21:08
  *
  * Manual updates:
  * Only the data in the array - everything else is removed by next
  * writing. "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array(
+$EM_CONF[$_EXTKEY] = array (
 	'title' => 'YAG Theme Magnific Popup',
 	'description' => 'Theme for YAG gallery that integrates Magnific Popup for displaying images.',
 	'category' => 'plugin',
 	'shy' => 0,
 	'version' => '0.1.2',
-	'dependencies' => 'yag',
+	'dependencies' => '',
 	'conflicts' => '',
 	'priority' => '',
 	'loadOrder' => '',
@@ -30,21 +30,23 @@ $EM_CONF[$_EXTKEY] = array(
 	'author' => 'Jonathan Heilmann',
 	'author_email' => 'mail@jonathan-heilmann.de',
 	'author_company' => 'Webprogrammierung Jonathan Heilmann',
-	'CGLcompliance' => '',
-	'CGLcompliance_note' => '',
-	'constraints' => array(
-		'depends' => array(
+	'CGLcompliance' => NULL,
+	'CGLcompliance_note' => NULL,
+	'constraints' =>
+	array (
+		'depends' =>
+		array (
 			'typo3' => '4.5.0-6.1.99',
 			'yag' => '',
+
 		),
-		'conflicts' => array(
+		'conflicts' =>
+		array (
 		),
-		'suggests' => array(
+		'suggests' =>
+		array (
 		),
 	),
-	'suggests' => array(
-	),
-	'_md5_values_when_last_written' => '',
 );
 
 ?>
