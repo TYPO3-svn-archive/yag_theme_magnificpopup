@@ -34,7 +34,7 @@ $EM_CONF[$_EXTKEY] = array (
 			'yag' => '3.0.1-0.0.0',
 		),
 		'conflicts' => array(
-			'yag' => '0.0.0-3.0.1',
+			'yag' => '0.0.0-3.0.0',
 		),
 		'suggests' => array(
 		),
